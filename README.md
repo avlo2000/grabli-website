@@ -26,21 +26,21 @@ link always remains available.
 ## Publish with the included script
 
 Requirements: Python 3.9+ and the official [GitHub CLI](https://cli.github.com/).
-The CLI must be signed into the GitHub account that should own the site.
+The CLI must be signed into the GitHub account that owns the site.
 
 ```sh
 gh auth login --hostname github.com
 python3 publish.py --repo grabli-website
 ```
 
-Confirm the public publication when prompted. The script creates a **new public
-repository** under the authenticated account, uploads only `index.html`,
-`.nojekyll` and this README, enables GitHub Pages from the default branch root,
-and prints the URL returned by GitHub. It checks the initial deployment and only
-reports `LIVE and verified` after a successful HTTP response containing the page.
+For a new repository, confirm the public publication when prompted. If the
+repository already exists under the authenticated account, the script updates
+only `index.html`, `.nojekyll` and this README. It enables GitHub Pages from the
+default branch root when needed, then checks the deployment and reports
+`LIVE and verified` only after a successful HTTP response containing the page.
 
-The script refuses to overwrite a pre-existing repository. A local state file
-allows it to resume a repository created by its own previous run. That state file
+For a repository it created, a local state file allows the script to resume and
+refuses to create a replacement if that repository disappears. The state file
 contains only the repository name and numeric ID; it is not uploaded. No token is
 requested, printed or stored by this script.
 
@@ -75,7 +75,7 @@ asset-path configuration, framework, package installation or font download.
 The page works at repository subpaths without modification.
 
 Search for the HTML section IDs `product`, `technology`, `validation`, `demo` and
-`contact` to find the corresponding text. The YouTube ID is `ozVAcjWAYxY`. The
+`contact` to find the corresponding text. The YouTube ID is `Si6ZT7ueMGU`. The
 player uses youtube-nocookie.com and is not loaded until the visitor presses play.
 No analytics, signup form or site-owned cookies have been added.
 
