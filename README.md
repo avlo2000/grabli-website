@@ -5,8 +5,9 @@ using the selected Technical Charcoal design: dark charcoal, cyan accents and th
 original GRABLI mark and sensor-module illustration.
 
 The public page includes the product overview, supported FPV platforms,
-physics-aware AI positioning, early validation, pilot testimonial, current demo,
-manufacturing milestones and existing WhatsApp / Signal contact links.
+physics-aware AI positioning, early validation, pilot testimonial, captioned C2
+mission demo, project demo, manufacturing milestones and existing WhatsApp /
+Signal contact links.
 Financial figures, operating-band specifications, internal NDA relationships and
 individual attribution are not included. Original presentations and one-pager
 PDFs must not be uploaded alongside the website.
@@ -19,9 +20,11 @@ Open `index.html` directly in a browser. For a local web-server preview, run:
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`. Video playback requires internet access;
-YouTube may refuse embedded playback from local file URLs. The direct YouTube
-link always remains available.
+Then open `http://localhost:8000`. The C2 mission video is included in `assets/`
+and plays locally, with English captions, at 2× speed (40.65 seconds). It uses
+native playback controls and loads only when played. The separate YouTube
+project demo requires internet access and may refuse embedded playback from
+local file URLs; its direct YouTube link remains available.
 
 ## Publish with the included script
 
@@ -35,8 +38,9 @@ python3 publish.py --repo grabli-website
 
 For a new repository, confirm the public publication when prompted. If the
 repository already exists under the authenticated account, the script updates
-only `index.html`, `.nojekyll` and this README. It enables GitHub Pages from the
-default branch root when needed, then checks the deployment and reports
+`index.html`, `.nojekyll`, this README and the C2 video and poster in `assets/`.
+It enables GitHub Pages from the default branch root when needed, then checks
+the deployment and reports
 `LIVE and verified` only after a successful HTTP response containing the page.
 
 For a repository it created, a local state file allows the script to resume and
@@ -56,8 +60,9 @@ remain intact and the script reports the error rather than claiming deployment.
 ## Publish using GitHub's website instead
 
 1. Create a new public repository, for example `grabli-website`.
-2. Upload `index.html` into the repository root and commit it. The optional
-   `.nojekyll` file disables unnecessary static-site processing.
+2. Upload `index.html` and the `assets/` directory into the repository root and
+   commit them. Keep the asset filenames and directory structure unchanged.
+   The optional `.nojekyll` file disables unnecessary static-site processing.
 3. In **Settings → Pages**, select **Deploy from a branch**, choose the default
    branch and **/(root)**, then save. Open the site URL shown by GitHub after the
    deployment completes.
@@ -71,12 +76,16 @@ Official documentation:
 
 All copy, styles and the small demo-loader script live in `index.html`. The logo
 and module illustration are embedded as image data, so there is no build step,
-asset-path configuration, framework, package installation or font download.
-The page works at repository subpaths without modification.
+framework, package installation or font download. The C2 video and poster use
+relative paths in `assets/`, so the page works at repository subpaths without
+modification.
 
 Search for the HTML section IDs `product`, `technology`, `validation`, `demo` and
-`contact` to find the corresponding text. The YouTube ID is `Si6ZT7ueMGU`. The
-player uses youtube-nocookie.com and is not loaded until the visitor presses play.
+`contact` to find the corresponding text. The C2 player is `c2-demo-video`; its
+video is `assets/grabli-c2-demo-2x.mp4` and its preview image is
+`assets/grabli-c2-demo-poster.jpg`. The English captions are part of the video.
+The YouTube ID is `Si6ZT7ueMGU`. Its player uses youtube-nocookie.com and is not
+loaded until the visitor presses play.
 No analytics, signup form or site-owned cookies have been added.
 
 ## Validation performed on the supplied files
@@ -86,8 +95,9 @@ No analytics, signup form or site-owned cookies have been added.
 - All in-page anchors resolve; all images have alternative text attributes.
 - No third-party network request occurs until the demo is activated or an
   external contact link is followed.
-- Demo-button interaction checked with the video response mocked. Actual hosted
-  video playback and third-party contact destinations have not been tested.
+- C2 video playback, seeking, local assets and responsive layout checked locally.
+- YouTube demo-button interaction checked with the video response mocked. Actual
+  YouTube playback and third-party contact destinations have not been tested.
 - Production deployment has **not** been performed in the authoring session.
 
 The project copy is based on the supplied materials; product claims and
